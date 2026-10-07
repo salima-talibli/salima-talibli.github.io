@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_557d1de9f1724d5e889d3d43424ae855 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed;
+    bottom: 35px;
+    left: 35px;
+    z-index: 9999;
+    background: white;
+    padding: 13px 16px;
+    border: 1px solid #888;
+    border-radius: 7px;
+    font-family: Arial;
+    font-size: 13px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+">
+
+<b>Visual screening</b><br><br>
+
+<span style="
+    display:inline-block;
+    width:12px;
+    height:12px;
+    background:#2E8B57;
+    margin-right:6px;">
+</span>
+Keep for shortlist<br>
+
+<span style="
+    display:inline-block;
+    width:12px;
+    height:12px;
+    background:#F39C12;
+    margin-right:6px;">
+</span>
+Manual review
+
+</div>
+    
+            <div class="folium-map" id="map_557d1de9f1724d5e889d3d43424ae855" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_557d1de9f1724d5e889d3d43424ae855 = L.map(
+                "map_557d1de9f1724d5e889d3d43424ae855",
+                {
+                    center: [53.55, 10.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_557d1de9f1724d5e889d3d43424ae855);
+
+            
+
+        
+    
+            var tile_layer_8e2f0498f41cf31c2c4f328cff511998 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u00a9 Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8e2f0498f41cf31c2c4f328cff511998.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+        function geo_json_5612e0aa1a6a7ecc41afc746e6e851a7_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#F39C12", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_5612e0aa1a6a7ecc41afc746e6e851a7_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_5612e0aa1a6a7ecc41afc746e6e851a7 = L.geoJson(null, {
+                onEachFeature: geo_json_5612e0aa1a6a7ecc41afc746e6e851a7_onEachFeature,
+            
+                style: geo_json_5612e0aa1a6a7ecc41afc746e6e851a7_styler,
+            ...{
+}
+        });
+
+        function geo_json_5612e0aa1a6a7ecc41afc746e6e851a7_add (data) {
+            geo_json_5612e0aa1a6a7ecc41afc746e6e851a7
+                .addData(data);
+        }
+            geo_json_5612e0aa1a6a7ecc41afc746e6e851a7_add({"features": [{"geometry": {"coordinates": [[[[9.909336, 53.47777039999998], [9.9093917, 53.47771809999998], [9.9095003, 53.4776478], [9.909590199999998, 53.47763510000001], [9.909499, 53.4774982], [9.9094594, 53.4774228], [9.909444700000002, 53.477085899999985], [9.909367600000003, 53.4770871], [9.9093689, 53.4770576], [9.9093897, 53.477034899999985], [9.9094225, 53.477024500000006], [9.909807399999998, 53.477015299999984], [9.9098376, 53.47701049999998], [9.9098764, 53.47698729999998], [9.9098658, 53.476830899999996], [9.9098561, 53.4767742], [9.9098507, 53.47666209999998], [9.9099306, 53.47666069999998], [9.909906299999998, 53.47631529999999], [9.9095506, 53.47632209999996], [9.9094641, 53.4763081], [9.9093944, 53.47630419999997], [9.9093723, 53.47630419999999], [9.909320600000001, 53.476310899999994], [9.9092898, 53.47631810000001], [9.9092509, 53.47633650000001], [9.9092207, 53.47635439999998], [9.909183799999997, 53.4763592], [9.909109399999998, 53.476361999999995], [9.909218, 53.478026199999974], [9.909351500000001, 53.47809959999999], [9.909336, 53.47777039999998]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_5612e0aa1a6a7ecc41afc746e6e851a7.bindTooltip(
+                `<div>
+                     Rank 1 | Score 99.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_525015bd50a808a08801730420f8550b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_fafb97f19ca14b79ed6a3a6ee726878e = $(`<div id="html_fafb97f19ca14b79ed6a3a6ee726878e" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #1         </h3>          <b>Opportunity score:</b>         99.2 / 100<br>          <b>Visual screening:</b>         Manual review<br>          <hr>          <b>Parking area:</b>         5,765 m²<br>          <b>Distance to existing park:</b>         1,671 m<br>          <b>Local summer LST:</b>         37.8 °C<br>          <b>Distance to transit:</b>         6 m<br>          <b>Land-value proxy:</b>         370 €/m²<br>          <b>Built-up cover (150 m):</b>         51.6%<br>      </div>     </div>`)[0];
+                popup_525015bd50a808a08801730420f8550b.setContent(html_fafb97f19ca14b79ed6a3a6ee726878e);
+            
+        
+
+        geo_json_5612e0aa1a6a7ecc41afc746e6e851a7.bindPopup(popup_525015bd50a808a08801730420f8550b)
+        ;
+
+        
+    
+    
+            geo_json_5612e0aa1a6a7ecc41afc746e6e851a7.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_b7117fc7a2ff8a3036620800113bea13 = L.marker(
+                [53.47725495, 9.909309873521376],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_62a5488cad958037c15d28314e2afa87 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                1\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_b7117fc7a2ff8a3036620800113bea13.setIcon(div_icon_62a5488cad958037c15d28314e2afa87);
+            
+    
+        function geo_json_9f70b31326a3273e37ebbd7c8d6d974f_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#F39C12", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_9f70b31326a3273e37ebbd7c8d6d974f_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_9f70b31326a3273e37ebbd7c8d6d974f = L.geoJson(null, {
+                onEachFeature: geo_json_9f70b31326a3273e37ebbd7c8d6d974f_onEachFeature,
+            
+                style: geo_json_9f70b31326a3273e37ebbd7c8d6d974f_styler,
+            ...{
+}
+        });
+
+        function geo_json_9f70b31326a3273e37ebbd7c8d6d974f_add (data) {
+            geo_json_9f70b31326a3273e37ebbd7c8d6d974f
+                .addData(data);
+        }
+            geo_json_9f70b31326a3273e37ebbd7c8d6d974f_add({"features": [{"geometry": {"coordinates": [[[[10.0854115, 53.5373415], [10.0863733, 53.53717539999999], [10.0859205, 53.53625239999999], [10.0849189, 53.53643379999999], [10.0854115, 53.5373415]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_9f70b31326a3273e37ebbd7c8d6d974f.bindTooltip(
+                `<div>
+                     Rank 2 | Score 96.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_fa0db06bc3c5b9e14a66bb88a6043895 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_ea7400d984e70f673896f3ca135d3648 = $(`<div id="html_ea7400d984e70f673896f3ca135d3648" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #2         </h3>          <b>Opportunity score:</b>         96.4 / 100<br>          <b>Visual screening:</b>         Manual review<br>          <hr>          <b>Parking area:</b>         7,232 m²<br>          <b>Distance to existing park:</b>         953 m<br>          <b>Local summer LST:</b>         36.9 °C<br>          <b>Distance to transit:</b>         43 m<br>          <b>Land-value proxy:</b>         300 €/m²<br>          <b>Built-up cover (150 m):</b>         30.5%<br>      </div>     </div>`)[0];
+                popup_fa0db06bc3c5b9e14a66bb88a6043895.setContent(html_ea7400d984e70f673896f3ca135d3648);
+            
+        
+
+        geo_json_9f70b31326a3273e37ebbd7c8d6d974f.bindPopup(popup_fa0db06bc3c5b9e14a66bb88a6043895)
+        ;
+
+        
+    
+    
+            geo_json_9f70b31326a3273e37ebbd7c8d6d974f.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_1dfd08da0ec7433c8f1125ce023ea618 = L.marker(
+                [53.53680459999999, 10.08565576232525],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_a24bb03387bb7abbc04a0cac6a3e70c5 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                2\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_1dfd08da0ec7433c8f1125ce023ea618.setIcon(div_icon_a24bb03387bb7abbc04a0cac6a3e70c5);
+            
+    
+        function geo_json_939e0c701e947417b87479b1769bccba_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#F39C12", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_939e0c701e947417b87479b1769bccba_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_939e0c701e947417b87479b1769bccba = L.geoJson(null, {
+                onEachFeature: geo_json_939e0c701e947417b87479b1769bccba_onEachFeature,
+            
+                style: geo_json_939e0c701e947417b87479b1769bccba_styler,
+            ...{
+}
+        });
+
+        function geo_json_939e0c701e947417b87479b1769bccba_add (data) {
+            geo_json_939e0c701e947417b87479b1769bccba
+                .addData(data);
+        }
+            geo_json_939e0c701e947417b87479b1769bccba_add({"features": [{"geometry": {"coordinates": [[[[9.9968439, 53.5285091], [9.996891699999997, 53.5286476], [9.9971532, 53.52857900000001], [9.997824900000001, 53.527588900000005], [9.997521399999998, 53.527675799999976], [9.9976311, 53.52751089999999], [9.997561099999999, 53.52744560000001], [9.9972638, 53.52750609999999], [9.9965641, 53.52856299999999], [9.9965768, 53.52857519999998], [9.9968439, 53.5285091]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_939e0c701e947417b87479b1769bccba.bindTooltip(
+                `<div>
+                     Rank 3 | Score 96.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_ec97c9cda1f1fdb981957226e656f8e7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_2fad5c5cf020577b9725ee3e5d20ec87 = $(`<div id="html_2fad5c5cf020577b9725ee3e5d20ec87" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #3         </h3>          <b>Opportunity score:</b>         96.0 / 100<br>          <b>Visual screening:</b>         Manual review<br>          <hr>          <b>Parking area:</b>         4,658 m²<br>          <b>Distance to existing park:</b>         1,094 m<br>          <b>Local summer LST:</b>         37.5 °C<br>          <b>Distance to transit:</b>         164 m<br>          <b>Land-value proxy:</b>         430 €/m²<br>          <b>Built-up cover (150 m):</b>         35.7%<br>      </div>     </div>`)[0];
+                popup_ec97c9cda1f1fdb981957226e656f8e7.setContent(html_2fad5c5cf020577b9725ee3e5d20ec87);
+            
+        
+
+        geo_json_939e0c701e947417b87479b1769bccba.bindPopup(popup_ec97c9cda1f1fdb981957226e656f8e7)
+        ;
+
+        
+    
+    
+            geo_json_939e0c701e947417b87479b1769bccba.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_b97bdc0b5e5151fd89d57a1e0baf93f6 = L.marker(
+                [53.52809244999999, 9.997179450948636],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_d7c01100fbc6519de775cbb7059836a9 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                3\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_b97bdc0b5e5151fd89d57a1e0baf93f6.setIcon(div_icon_d7c01100fbc6519de775cbb7059836a9);
+            
+    
+        function geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27 = L.geoJson(null, {
+                onEachFeature: geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27_onEachFeature,
+            
+                style: geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27_styler,
+            ...{
+}
+        });
+
+        function geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27_add (data) {
+            geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27
+                .addData(data);
+        }
+            geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27_add({"features": [{"geometry": {"coordinates": [[[[9.9673985, 53.53680589999997], [9.9676393, 53.5368327], [9.9678007, 53.5368221], [9.968100299999996, 53.53670339999997], [9.968410899999999, 53.536304199999975], [9.9685757, 53.535800099999996], [9.968425199999999, 53.53577619999998], [9.9684842, 53.53557039999997], [9.968397700000002, 53.53556350000001], [9.968327899999997, 53.535784099999994], [9.9682016, 53.5357854], [9.9669621, 53.53623989999999], [9.9671728, 53.53643509999999], [9.9670715, 53.53647819999998], [9.9673985, 53.53680589999997]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27.bindTooltip(
+                `<div>
+                     Rank 4 | Score 95.3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_4d7cb19245be37c71c7dd50adaaf10e2 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_d1ff349f1f49505de7e6da61344a93e3 = $(`<div id="html_d1ff349f1f49505de7e6da61344a93e3" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #4         </h3>          <b>Opportunity score:</b>         95.3 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         7,695 m²<br>          <b>Distance to existing park:</b>         1,035 m<br>          <b>Local summer LST:</b>         36.5 °C<br>          <b>Distance to transit:</b>         58 m<br>          <b>Land-value proxy:</b>         375 €/m²<br>          <b>Built-up cover (150 m):</b>         28.0%<br>      </div>     </div>`)[0];
+                popup_4d7cb19245be37c71c7dd50adaaf10e2.setContent(html_d1ff349f1f49505de7e6da61344a93e3);
+            
+        
+
+        geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27.bindPopup(popup_4d7cb19245be37c71c7dd50adaaf10e2)
+        ;
+
+        
+    
+    
+            geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_bbc4db8c5b76ef5bad52464f2634929c = L.marker(
+                [53.53601999999999, 9.968032807867404],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_c6ddb7866204b28382d109a61f244418 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                4\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_bbc4db8c5b76ef5bad52464f2634929c.setIcon(div_icon_c6ddb7866204b28382d109a61f244418);
+            
+    
+        function geo_json_c0b12e7388ba2e45673ac6ee1352fb3f_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#F39C12", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_c0b12e7388ba2e45673ac6ee1352fb3f_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_c0b12e7388ba2e45673ac6ee1352fb3f = L.geoJson(null, {
+                onEachFeature: geo_json_c0b12e7388ba2e45673ac6ee1352fb3f_onEachFeature,
+            
+                style: geo_json_c0b12e7388ba2e45673ac6ee1352fb3f_styler,
+            ...{
+}
+        });
+
+        function geo_json_c0b12e7388ba2e45673ac6ee1352fb3f_add (data) {
+            geo_json_c0b12e7388ba2e45673ac6ee1352fb3f
+                .addData(data);
+        }
+            geo_json_c0b12e7388ba2e45673ac6ee1352fb3f_add({"features": [{"geometry": {"coordinates": [[[[10.112346, 53.4990719], [10.1126346, 53.49888359999999], [10.113067599999999, 53.499084799999984], [10.113129299999999, 53.49902679999998], [10.1122593, 53.498467599999984], [10.1118025, 53.49880529999999], [10.112346, 53.4990719]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_c0b12e7388ba2e45673ac6ee1352fb3f.bindTooltip(
+                `<div>
+                     Rank 5 | Score 95.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_16a8a0e9a976166f663b10c74169649d = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_07818ed80c395c81435fb5a0ff1a195f = $(`<div id="html_07818ed80c395c81435fb5a0ff1a195f" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #5         </h3>          <b>Opportunity score:</b>         95.0 / 100<br>          <b>Visual screening:</b>         Manual review<br>          <hr>          <b>Parking area:</b>         2,530 m²<br>          <b>Distance to existing park:</b>         1,300 m<br>          <b>Local summer LST:</b>         35.8 °C<br>          <b>Distance to transit:</b>         90 m<br>          <b>Land-value proxy:</b>         330 €/m²<br>          <b>Built-up cover (150 m):</b>         42.6%<br>      </div>     </div>`)[0];
+                popup_16a8a0e9a976166f663b10c74169649d.setContent(html_07818ed80c395c81435fb5a0ff1a195f);
+            
+        
+
+        geo_json_c0b12e7388ba2e45673ac6ee1352fb3f.bindPopup(popup_16a8a0e9a976166f663b10c74169649d)
+        ;
+
+        
+    
+    
+            geo_json_c0b12e7388ba2e45673ac6ee1352fb3f.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_6f27b214e1a695d871eb9d9aeb13a77c = L.marker(
+                [53.498636449999985, 10.112276447907728],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_ce16e763d0f794a789b9a32a42af7dac = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                5\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_6f27b214e1a695d871eb9d9aeb13a77c.setIcon(div_icon_ce16e763d0f794a789b9a32a42af7dac);
+            
+    
+        function geo_json_d07bb2ea8512fd405c653a6c1cd43650_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_d07bb2ea8512fd405c653a6c1cd43650_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_d07bb2ea8512fd405c653a6c1cd43650 = L.geoJson(null, {
+                onEachFeature: geo_json_d07bb2ea8512fd405c653a6c1cd43650_onEachFeature,
+            
+                style: geo_json_d07bb2ea8512fd405c653a6c1cd43650_styler,
+            ...{
+}
+        });
+
+        function geo_json_d07bb2ea8512fd405c653a6c1cd43650_add (data) {
+            geo_json_d07bb2ea8512fd405c653a6c1cd43650
+                .addData(data);
+        }
+            geo_json_d07bb2ea8512fd405c653a6c1cd43650_add({"features": [{"geometry": {"coordinates": [[[[10.0483931, 53.50688929999999], [10.0491213, 53.5069684], [10.0494736, 53.5058218], [10.0487454, 53.5057427], [10.0483931, 53.50688929999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_d07bb2ea8512fd405c653a6c1cd43650.bindTooltip(
+                `<div>
+                     Rank 6 | Score 94.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_711a2bedaf249df8fa017d699ee6c514 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_e9de93ebfa459cecd900874ed2b99c51 = $(`<div id="html_e9de93ebfa459cecd900874ed2b99c51" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #6         </h3>          <b>Opportunity score:</b>         94.9 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         6,367 m²<br>          <b>Distance to existing park:</b>         1,625 m<br>          <b>Local summer LST:</b>         33.7 °C<br>          <b>Distance to transit:</b>         233 m<br>          <b>Land-value proxy:</b>         320 €/m²<br>          <b>Built-up cover (150 m):</b>         32.5%<br>      </div>     </div>`)[0];
+                popup_711a2bedaf249df8fa017d699ee6c514.setContent(html_e9de93ebfa459cecd900874ed2b99c51);
+            
+        
+
+        geo_json_d07bb2ea8512fd405c653a6c1cd43650.bindPopup(popup_711a2bedaf249df8fa017d699ee6c514)
+        ;
+
+        
+    
+    
+            geo_json_d07bb2ea8512fd405c653a6c1cd43650.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_28091664919153450dca5407718ecf9a = L.marker(
+                [53.506355549999995, 10.04893335],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_7779a9c24d6f34c9c0c9a8e312ee85a8 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                6\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_28091664919153450dca5407718ecf9a.setIcon(div_icon_7779a9c24d6f34c9c0c9a8e312ee85a8);
+            
+    
+        function geo_json_52a1878ec44f4749f129a6a16adea091_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_52a1878ec44f4749f129a6a16adea091_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_52a1878ec44f4749f129a6a16adea091 = L.geoJson(null, {
+                onEachFeature: geo_json_52a1878ec44f4749f129a6a16adea091_onEachFeature,
+            
+                style: geo_json_52a1878ec44f4749f129a6a16adea091_styler,
+            ...{
+}
+        });
+
+        function geo_json_52a1878ec44f4749f129a6a16adea091_add (data) {
+            geo_json_52a1878ec44f4749f129a6a16adea091
+                .addData(data);
+        }
+            geo_json_52a1878ec44f4749f129a6a16adea091_add({"features": [{"geometry": {"coordinates": [[[[10.0094887, 53.45591459999999], [10.008892899999998, 53.456179600000006], [10.0086994, 53.45601779999998], [10.008436499999998, 53.456132499999995], [10.0086223, 53.4562848], [10.0085258, 53.4563253], [10.008617299999997, 53.4564025], [10.0095718, 53.455980099999984], [10.010360299999999, 53.45564789999999], [10.009899, 53.455271], [10.0096892, 53.455359999999985], [10.009792, 53.45543979999999], [10.0095702, 53.45552889999997], [10.0094001, 53.45540189999999], [10.0090407, 53.4555616], [10.0094887, 53.45591459999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_52a1878ec44f4749f129a6a16adea091.bindTooltip(
+                `<div>
+                     Rank 7 | Score 94.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_288aca1618016935ebd16f8a0142034f = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_0678b94975f3965a07095f144b4312ad = $(`<div id="html_0678b94975f3965a07095f144b4312ad" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #7         </h3>          <b>Opportunity score:</b>         94.2 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         4,560 m²<br>          <b>Distance to existing park:</b>         1,759 m<br>          <b>Local summer LST:</b>         33.8 °C<br>          <b>Distance to transit:</b>         41 m<br>          <b>Land-value proxy:</b>         330 €/m²<br>          <b>Built-up cover (150 m):</b>         28.5%<br>      </div>     </div>`)[0];
+                popup_288aca1618016935ebd16f8a0142034f.setContent(html_0678b94975f3965a07095f144b4312ad);
+            
+        
+
+        geo_json_52a1878ec44f4749f129a6a16adea091.bindPopup(popup_288aca1618016935ebd16f8a0142034f)
+        ;
+
+        
+    
+    
+            geo_json_52a1878ec44f4749f129a6a16adea091.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_80685f2bf9f2e24d0de517ac14993191 = L.marker(
+                [53.45578124999999, 10.009681623514126],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_4fe3fffc0df4982d5b6026485b28e9ac = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                7\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_80685f2bf9f2e24d0de517ac14993191.setIcon(div_icon_4fe3fffc0df4982d5b6026485b28e9ac);
+            
+    
+        function geo_json_0fcf2b3215650a6a63b0ba1684efa60c_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#F39C12", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_0fcf2b3215650a6a63b0ba1684efa60c_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_0fcf2b3215650a6a63b0ba1684efa60c = L.geoJson(null, {
+                onEachFeature: geo_json_0fcf2b3215650a6a63b0ba1684efa60c_onEachFeature,
+            
+                style: geo_json_0fcf2b3215650a6a63b0ba1684efa60c_styler,
+            ...{
+}
+        });
+
+        function geo_json_0fcf2b3215650a6a63b0ba1684efa60c_add (data) {
+            geo_json_0fcf2b3215650a6a63b0ba1684efa60c
+                .addData(data);
+        }
+            geo_json_0fcf2b3215650a6a63b0ba1684efa60c_add({"features": [{"geometry": {"coordinates": [[[[9.904486800000003, 53.482522799999984], [9.9044619, 53.4824251], [9.9026764, 53.48257609999999], [9.902799199999999, 53.482825], [9.904486800000003, 53.482522799999984]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_0fcf2b3215650a6a63b0ba1684efa60c.bindTooltip(
+                `<div>
+                     Rank 8 | Score 94.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_e519461dedaa26583223c79d4e0d7ca5 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_300d7cb298412fcf5d76fefb750c3e76 = $(`<div id="html_300d7cb298412fcf5d76fefb750c3e76" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #8         </h3>          <b>Opportunity score:</b>         94.2 / 100<br>          <b>Visual screening:</b>         Manual review<br>          <hr>          <b>Parking area:</b>         2,345 m²<br>          <b>Distance to existing park:</b>         1,432 m<br>          <b>Local summer LST:</b>         35.0 °C<br>          <b>Distance to transit:</b>         70 m<br>          <b>Land-value proxy:</b>         370 €/m²<br>          <b>Built-up cover (150 m):</b>         41.5%<br>      </div>     </div>`)[0];
+                popup_e519461dedaa26583223c79d4e0d7ca5.setContent(html_300d7cb298412fcf5d76fefb750c3e76);
+            
+        
+
+        geo_json_0fcf2b3215650a6a63b0ba1684efa60c.bindPopup(popup_e519461dedaa26583223c79d4e0d7ca5)
+        ;
+
+        
+    
+    
+            geo_json_0fcf2b3215650a6a63b0ba1684efa60c.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_5ce59ca07e5246794c205bfe7fb3f956 = L.marker(
+                [53.48270054999999, 9.903115988120456],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_d8c97d6dae94b5dfdd5633b1e5c8ed7b = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                8\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_5ce59ca07e5246794c205bfe7fb3f956.setIcon(div_icon_d8c97d6dae94b5dfdd5633b1e5c8ed7b);
+            
+    
+        function geo_json_8c6da659c278aa75d0c984bb4ae2be1d_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_8c6da659c278aa75d0c984bb4ae2be1d_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_8c6da659c278aa75d0c984bb4ae2be1d = L.geoJson(null, {
+                onEachFeature: geo_json_8c6da659c278aa75d0c984bb4ae2be1d_onEachFeature,
+            
+                style: geo_json_8c6da659c278aa75d0c984bb4ae2be1d_styler,
+            ...{
+}
+        });
+
+        function geo_json_8c6da659c278aa75d0c984bb4ae2be1d_add (data) {
+            geo_json_8c6da659c278aa75d0c984bb4ae2be1d
+                .addData(data);
+        }
+            geo_json_8c6da659c278aa75d0c984bb4ae2be1d_add({"features": [{"geometry": {"coordinates": [[[[9.9430043, 53.52596209999999], [9.943265599999998, 53.52629009999999], [9.9433718, 53.526399700000006], [9.9434718, 53.5264461], [9.9435748, 53.52644609999999], [9.944030900000001, 53.526329100000005], [9.944193299999998, 53.52625479999997], [9.9442495, 53.5261936], [9.9442432, 53.52612669999999], [9.9442089, 53.526061699999985], [9.943553699999999, 53.52522479999999], [9.9431788, 53.525063], [9.9429221, 53.525242899999974], [9.9430907, 53.52545640000001], [9.943097000000002, 53.525504699999985], [9.9430927, 53.525512799999994], [9.9429817, 53.52572020000001], [9.942947, 53.52578509999999], [9.942928300000002, 53.525866799999996], [9.9430043, 53.52596209999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_8c6da659c278aa75d0c984bb4ae2be1d.bindTooltip(
+                `<div>
+                     Rank 9 | Score 93.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_c51aed8b11d061bc4436cef63ecc60b9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_967bcaadfdbdd4d357a3d6534a7ddec0 = $(`<div id="html_967bcaadfdbdd4d357a3d6534a7ddec0" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #9         </h3>          <b>Opportunity score:</b>         93.6 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         8,110 m²<br>          <b>Distance to existing park:</b>         2,036 m<br>          <b>Local summer LST:</b>         36.9 °C<br>          <b>Distance to transit:</b>         68 m<br>          <b>Land-value proxy:</b>         340 €/m²<br>          <b>Built-up cover (150 m):</b>         23.6%<br>      </div>     </div>`)[0];
+                popup_c51aed8b11d061bc4436cef63ecc60b9.setContent(html_967bcaadfdbdd4d357a3d6534a7ddec0);
+            
+        
+
+        geo_json_8c6da659c278aa75d0c984bb4ae2be1d.bindPopup(popup_c51aed8b11d061bc4436cef63ecc60b9)
+        ;
+
+        
+    
+    
+            geo_json_8c6da659c278aa75d0c984bb4ae2be1d.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_6db1b0bbc9b410d9a65eaaa24cf9e443 = L.marker(
+                [53.52575265, 9.943465649041109],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_870b7e90f3024ee260a7ee864ade6326 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                9\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_6db1b0bbc9b410d9a65eaaa24cf9e443.setIcon(div_icon_870b7e90f3024ee260a7ee864ade6326);
+            
+    
+        function geo_json_64c46f0ff760c404dbf2d16dcbd22c86_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_64c46f0ff760c404dbf2d16dcbd22c86_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_64c46f0ff760c404dbf2d16dcbd22c86 = L.geoJson(null, {
+                onEachFeature: geo_json_64c46f0ff760c404dbf2d16dcbd22c86_onEachFeature,
+            
+                style: geo_json_64c46f0ff760c404dbf2d16dcbd22c86_styler,
+            ...{
+}
+        });
+
+        function geo_json_64c46f0ff760c404dbf2d16dcbd22c86_add (data) {
+            geo_json_64c46f0ff760c404dbf2d16dcbd22c86
+                .addData(data);
+        }
+            geo_json_64c46f0ff760c404dbf2d16dcbd22c86_add({"features": [{"geometry": {"coordinates": [[[[10.0909353, 53.53006709999999], [10.0913993, 53.5299863], [10.0910489, 53.52927239999999], [10.0905772, 53.5293546], [10.090501900000001, 53.52936769999999], [10.0908275, 53.53002110000001], [10.0908471, 53.530053], [10.0908517, 53.530060500000005], [10.090923, 53.530045900000005], [10.0909353, 53.53006709999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_64c46f0ff760c404dbf2d16dcbd22c86.bindTooltip(
+                `<div>
+                     Rank 10 | Score 92.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_04f5433608a0858b1009db268bd7123f = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_8e8fe945d97f8e665110d844db50ee67 = $(`<div id="html_8e8fe945d97f8e665110d844db50ee67" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #10         </h3>          <b>Opportunity score:</b>         92.4 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         3,099 m²<br>          <b>Distance to existing park:</b>         1,526 m<br>          <b>Local summer LST:</b>         35.9 °C<br>          <b>Distance to transit:</b>         53 m<br>          <b>Land-value proxy:</b>         295 €/m²<br>          <b>Built-up cover (150 m):</b>         26.9%<br>      </div>     </div>`)[0];
+                popup_04f5433608a0858b1009db268bd7123f.setContent(html_8e8fe945d97f8e665110d844db50ee67);
+            
+        
+
+        geo_json_64c46f0ff760c404dbf2d16dcbd22c86.bindPopup(popup_04f5433608a0858b1009db268bd7123f)
+        ;
+
+        
+    
+    
+            geo_json_64c46f0ff760c404dbf2d16dcbd22c86.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_2e155d335fc4e76380ca2579d7b7d4fe = L.marker(
+                [53.52967699999999, 10.090951758553173],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_e217d163c4f77e9c0aeb5cabd47e1db0 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                10\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_2e155d335fc4e76380ca2579d7b7d4fe.setIcon(div_icon_e217d163c4f77e9c0aeb5cabd47e1db0);
+            
+    
+        function geo_json_9d4a84f98f7b9245d0884c614a89d6c0_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_9d4a84f98f7b9245d0884c614a89d6c0_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_9d4a84f98f7b9245d0884c614a89d6c0 = L.geoJson(null, {
+                onEachFeature: geo_json_9d4a84f98f7b9245d0884c614a89d6c0_onEachFeature,
+            
+                style: geo_json_9d4a84f98f7b9245d0884c614a89d6c0_styler,
+            ...{
+}
+        });
+
+        function geo_json_9d4a84f98f7b9245d0884c614a89d6c0_add (data) {
+            geo_json_9d4a84f98f7b9245d0884c614a89d6c0
+                .addData(data);
+        }
+            geo_json_9d4a84f98f7b9245d0884c614a89d6c0_add({"features": [{"geometry": {"coordinates": [[[[10.080894800000001, 53.53575169999999], [10.0809512, 53.53549669999999], [10.0805113, 53.535477500000006], [10.0797629, 53.5355859], [10.0797549, 53.53568799999997], [10.080894800000001, 53.53575169999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_9d4a84f98f7b9245d0884c614a89d6c0.bindTooltip(
+                `<div>
+                     Rank 11 | Score 92.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_2ce280fcc38eee5ea08a824e2812a44c = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_fb6fbf8e38abe920053dfbba20ef06c4 = $(`<div id="html_fb6fbf8e38abe920053dfbba20ef06c4" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #11         </h3>          <b>Opportunity score:</b>         92.1 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         1,759 m²<br>          <b>Distance to existing park:</b>         1,124 m<br>          <b>Local summer LST:</b>         36.0 °C<br>          <b>Distance to transit:</b>         43 m<br>          <b>Land-value proxy:</b>         300 €/m²<br>          <b>Built-up cover (150 m):</b>         31.9%<br>      </div>     </div>`)[0];
+                popup_2ce280fcc38eee5ea08a824e2812a44c.setContent(html_fb6fbf8e38abe920053dfbba20ef06c4);
+            
+        
+
+        geo_json_9d4a84f98f7b9245d0884c614a89d6c0.bindPopup(popup_2ce280fcc38eee5ea08a824e2812a44c)
+        ;
+
+        
+    
+    
+            geo_json_9d4a84f98f7b9245d0884c614a89d6c0.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_fbda5dfcda66647c164959208100be35 = L.marker(
+                [53.53563694999998, 10.08033954],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_c5080175955255bc01eefe54eba6998f = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                11\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_fbda5dfcda66647c164959208100be35.setIcon(div_icon_c5080175955255bc01eefe54eba6998f);
+            
+    
+        function geo_json_3bddacfe6c2582674f242b85d34b5e47_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_3bddacfe6c2582674f242b85d34b5e47_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_3bddacfe6c2582674f242b85d34b5e47 = L.geoJson(null, {
+                onEachFeature: geo_json_3bddacfe6c2582674f242b85d34b5e47_onEachFeature,
+            
+                style: geo_json_3bddacfe6c2582674f242b85d34b5e47_styler,
+            ...{
+}
+        });
+
+        function geo_json_3bddacfe6c2582674f242b85d34b5e47_add (data) {
+            geo_json_3bddacfe6c2582674f242b85d34b5e47
+                .addData(data);
+        }
+            geo_json_3bddacfe6c2582674f242b85d34b5e47_add({"features": [{"geometry": {"coordinates": [[[[10.096666, 53.51033649999999], [10.0966291, 53.51036499999999], [10.0965363, 53.5103301], [10.0956736, 53.5100967], [10.0956251, 53.51009260000001], [10.095586, 53.5100997], [10.0955082, 53.510141699999984], [10.0954983, 53.5101455], [10.095480500000003, 53.5101439], [10.0953959, 53.510095199999995], [10.095338199999999, 53.5100151], [10.095360000000001, 53.50997939999999], [10.0951628, 53.5099486], [10.095094399999999, 53.50995579999999], [10.0950439, 53.509967599999996], [10.0949962, 53.50999139999998], [10.0949411, 53.510027699999995], [10.0946661, 53.510207699999995], [10.094839, 53.510293199999985], [10.094879199999996, 53.51026529999998], [10.094946900000002, 53.51029999999998], [10.0947746, 53.51041959999999], [10.094497699999998, 53.510291300000006], [10.0940773, 53.51057050000001], [10.0943324, 53.51070879999999], [10.0932206, 53.5114418], [10.0930894, 53.5114643], [10.0925656, 53.511818700000006], [10.092102899999997, 53.51212039999998], [10.0931975, 53.51269659999999], [10.0931462, 53.51273139999998], [10.09359, 53.512965], [10.094059100000003, 53.51270079999998], [10.094275700000003, 53.512548499999994], [10.0943401, 53.5125114], [10.094407100000002, 53.5124867], [10.094647899999998, 53.5123268], [10.0946646, 53.51227180000001], [10.0946311, 53.512216799999976], [10.0945842, 53.5121773], [10.0947136, 53.512098300000005], [10.094696799999998, 53.512079199999995], [10.0947008, 53.5120465], [10.094875199999999, 53.5119396], [10.0951092, 53.511787699999985], [10.0951789, 53.511757], [10.095299, 53.51174069999999], [10.0954264, 53.5117243], [10.0954867, 53.511710400000005], [10.0956168, 53.51165499999998], [10.095927999999999, 53.51145369999998], [10.0960303, 53.51136259999999], [10.0961971, 53.51126630000001], [10.0962162, 53.51125519999999], [10.096271899999998, 53.51119839999999], [10.096283999999999, 53.511146899999986], [10.0962739, 53.51110659999999], [10.0962481, 53.511076900000006], [10.096227, 53.511062], [10.096225299999999, 53.51104819999997], [10.0962371, 53.5110383], [10.096286, 53.511064399999995], [10.097016900000002, 53.5105717], [10.0969619, 53.5105476], [10.0970095, 53.51051439999999], [10.096666, 53.51033649999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_3bddacfe6c2582674f242b85d34b5e47.bindTooltip(
+                `<div>
+                     Rank 12 | Score 92.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_df3e258fafa1903eb4b96c3c1549f10f = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_7b91a488c5828093e0346ae22dffbee9 = $(`<div id="html_7b91a488c5828093e0346ae22dffbee9" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #12         </h3>          <b>Opportunity score:</b>         92.0 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         45,692 m²<br>          <b>Distance to existing park:</b>         1,374 m<br>          <b>Local summer LST:</b>         34.6 °C<br>          <b>Distance to transit:</b>         10 m<br>          <b>Land-value proxy:</b>         345 €/m²<br>          <b>Built-up cover (150 m):</b>         19.7%<br>      </div>     </div>`)[0];
+                popup_df3e258fafa1903eb4b96c3c1549f10f.setContent(html_7b91a488c5828093e0346ae22dffbee9);
+            
+        
+
+        geo_json_3bddacfe6c2582674f242b85d34b5e47.bindPopup(popup_df3e258fafa1903eb4b96c3c1549f10f)
+        ;
+
+        
+    
+    
+            geo_json_3bddacfe6c2582674f242b85d34b5e47.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_1c936e723736d48b684d6c9085b3dfa1 = L.marker(
+                [53.51145899999999, 10.094520055673488],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_fb7dd59a074ef2aa12b771b89944b251 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                12\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_1c936e723736d48b684d6c9085b3dfa1.setIcon(div_icon_fb7dd59a074ef2aa12b771b89944b251);
+            
+    
+        function geo_json_49a7061f75ed976cfcd6c516690a2406_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_49a7061f75ed976cfcd6c516690a2406_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_49a7061f75ed976cfcd6c516690a2406 = L.geoJson(null, {
+                onEachFeature: geo_json_49a7061f75ed976cfcd6c516690a2406_onEachFeature,
+            
+                style: geo_json_49a7061f75ed976cfcd6c516690a2406_styler,
+            ...{
+}
+        });
+
+        function geo_json_49a7061f75ed976cfcd6c516690a2406_add (data) {
+            geo_json_49a7061f75ed976cfcd6c516690a2406
+                .addData(data);
+        }
+            geo_json_49a7061f75ed976cfcd6c516690a2406_add({"features": [{"geometry": {"coordinates": [[[[10.0868295, 53.52290639999997], [10.087045299999998, 53.52282219999998], [10.0870881, 53.522831], [10.087758499999998, 53.52255779999997], [10.087644899999999, 53.522454], [10.0871359, 53.5225862], [10.086673, 53.522769299999986], [10.0868295, 53.52290639999997]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_49a7061f75ed976cfcd6c516690a2406.bindTooltip(
+                `<div>
+                     Rank 13 | Score 91.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_8eec7eda53824808722199f58fa35bad = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_cb612336655ac3f6aab6b8335cbfdc9d = $(`<div id="html_cb612336655ac3f6aab6b8335cbfdc9d" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #13         </h3>          <b>Opportunity score:</b>         91.4 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         1,347 m²<br>          <b>Distance to existing park:</b>         2,072 m<br>          <b>Local summer LST:</b>         35.7 °C<br>          <b>Distance to transit:</b>         30 m<br>          <b>Land-value proxy:</b>         295 €/m²<br>          <b>Built-up cover (150 m):</b>         39.4%<br>      </div>     </div>`)[0];
+                popup_8eec7eda53824808722199f58fa35bad.setContent(html_cb612336655ac3f6aab6b8335cbfdc9d);
+            
+        
+
+        geo_json_49a7061f75ed976cfcd6c516690a2406.bindPopup(popup_8eec7eda53824808722199f58fa35bad)
+        ;
+
+        
+    
+    
+            geo_json_49a7061f75ed976cfcd6c516690a2406.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_42e75a67d4525a5c6f3fa155a4db82f1 = L.marker(
+                [53.52267774999999, 10.0871843035505],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_b4feffdbdacbe3afc3c89ba72be8cdb6 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                13\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_42e75a67d4525a5c6f3fa155a4db82f1.setIcon(div_icon_b4feffdbdacbe3afc3c89ba72be8cdb6);
+            
+    
+        function geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2 = L.geoJson(null, {
+                onEachFeature: geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2_onEachFeature,
+            
+                style: geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2_styler,
+            ...{
+}
+        });
+
+        function geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2_add (data) {
+            geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2
+                .addData(data);
+        }
+            geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2_add({"features": [{"geometry": {"coordinates": [[[[9.980438999999999, 53.534281199999974], [9.980469500000002, 53.53423090000001], [9.9804505, 53.534025299999975], [9.980938, 53.53400599999999], [9.9811638, 53.53388469999999], [9.9811177, 53.533543], [9.9811088, 53.53347649999999], [9.980954899999999, 53.5334862], [9.9809495, 53.53344749999998], [9.979847000000001, 53.5334934], [9.9798294, 53.53359579999999], [9.980102, 53.533609500000004], [9.9805183, 53.53359249999998], [9.980780000000003, 53.5335531], [9.9810227, 53.5335269], [9.981045099999998, 53.533582899999985], [9.9807034, 53.53363889999998], [9.980459299999996, 53.533688499999975], [9.9801732, 53.533753699999984], [9.9800037, 53.53383229999999], [9.979807, 53.533936299999986], [9.979605699999999, 53.53400959999996], [9.979339199999998, 53.53409469999998], [9.979362299999998, 53.53431189999999], [9.9794063, 53.53432679999999], [9.980438999999999, 53.534281199999974]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2.bindTooltip(
+                `<div>
+                     Rank 14 | Score 91.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_98646da8a9fdb2f4a9f12eba84b7df3f = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_231d87f8c662cdd3dd92e033f6d57503 = $(`<div id="html_231d87f8c662cdd3dd92e033f6d57503" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #14         </h3>          <b>Opportunity score:</b>         91.2 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         6,356 m²<br>          <b>Distance to existing park:</b>         1,120 m<br>          <b>Local summer LST:</b>         35.1 °C<br>          <b>Distance to transit:</b>         98 m<br>          <b>Land-value proxy:</b>         410 €/m²<br>          <b>Built-up cover (150 m):</b>         22.0%<br>      </div>     </div>`)[0];
+                popup_98646da8a9fdb2f4a9f12eba84b7df3f.setContent(html_231d87f8c662cdd3dd92e033f6d57503);
+            
+        
+
+        geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2.bindPopup(popup_98646da8a9fdb2f4a9f12eba84b7df3f)
+        ;
+
+        
+    
+    
+            geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_39f6dfc99d291b3efd83649d58a80d91 = L.marker(
+                [53.53391049999999, 9.980485785010062],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_066665706c261d1dfe3a1b957d7a6b49 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                14\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_39f6dfc99d291b3efd83649d58a80d91.setIcon(div_icon_066665706c261d1dfe3a1b957d7a6b49);
+            
+    
+        function geo_json_da95d5a95cf8d785b6275065cb00741e_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_da95d5a95cf8d785b6275065cb00741e_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_da95d5a95cf8d785b6275065cb00741e = L.geoJson(null, {
+                onEachFeature: geo_json_da95d5a95cf8d785b6275065cb00741e_onEachFeature,
+            
+                style: geo_json_da95d5a95cf8d785b6275065cb00741e_styler,
+            ...{
+}
+        });
+
+        function geo_json_da95d5a95cf8d785b6275065cb00741e_add (data) {
+            geo_json_da95d5a95cf8d785b6275065cb00741e
+                .addData(data);
+        }
+            geo_json_da95d5a95cf8d785b6275065cb00741e_add({"features": [{"geometry": {"coordinates": [[[[9.969197899999998, 53.534542999999985], [9.9703314, 53.534606799999985], [9.9703982, 53.53418759999999], [9.969264600000004, 53.53412389999998], [9.969197899999998, 53.534542999999985]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_da95d5a95cf8d785b6275065cb00741e.bindTooltip(
+                `<div>
+                     Rank 15 | Score 91.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_7f7e4b06a25fa773a0fac55540469d0e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_15297e6e9070dbcbb092bdb05d9e53f8 = $(`<div id="html_15297e6e9070dbcbb092bdb05d9e53f8" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #15         </h3>          <b>Opportunity score:</b>         91.1 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         3,535 m²<br>          <b>Distance to existing park:</b>         1,211 m<br>          <b>Local summer LST:</b>         35.1 °C<br>          <b>Distance to transit:</b>         332 m<br>          <b>Land-value proxy:</b>         375 €/m²<br>          <b>Built-up cover (150 m):</b>         29.9%<br>      </div>     </div>`)[0];
+                popup_7f7e4b06a25fa773a0fac55540469d0e.setContent(html_15297e6e9070dbcbb092bdb05d9e53f8);
+            
+        
+
+        geo_json_da95d5a95cf8d785b6275065cb00741e.bindPopup(popup_7f7e4b06a25fa773a0fac55540469d0e)
+        ;
+
+        
+    
+    
+            geo_json_da95d5a95cf8d785b6275065cb00741e.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_32166f1b16ec3021d198d414c530bd45 = L.marker(
+                [53.53436529999999, 9.969798032178083],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_ee3c13426e7bc6911c5fcf66a31fa4c0 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                15\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_32166f1b16ec3021d198d414c530bd45.setIcon(div_icon_ee3c13426e7bc6911c5fcf66a31fa4c0);
+            
+    
+        function geo_json_bcd6bf9740ea4cefd49333bd17de9f68_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_bcd6bf9740ea4cefd49333bd17de9f68_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_bcd6bf9740ea4cefd49333bd17de9f68 = L.geoJson(null, {
+                onEachFeature: geo_json_bcd6bf9740ea4cefd49333bd17de9f68_onEachFeature,
+            
+                style: geo_json_bcd6bf9740ea4cefd49333bd17de9f68_styler,
+            ...{
+}
+        });
+
+        function geo_json_bcd6bf9740ea4cefd49333bd17de9f68_add (data) {
+            geo_json_bcd6bf9740ea4cefd49333bd17de9f68
+                .addData(data);
+        }
+            geo_json_bcd6bf9740ea4cefd49333bd17de9f68_add({"features": [{"geometry": {"coordinates": [[[[10.0896271, 53.51335209999999], [10.089304099999998, 53.513093499999975], [10.089218400000002, 53.51312639999998], [10.089121000000002, 53.51306730000001], [10.0892126, 53.51302099999999], [10.0890786, 53.51294779999998], [10.088947899999999, 53.51302759999998], [10.0887314, 53.512902199999985], [10.0887561, 53.5128871], [10.0885716, 53.512780199999995], [10.0883536, 53.5129132], [10.088214299999999, 53.512832599999996], [10.088057899999999, 53.512754199999996], [10.0879837, 53.512717099999975], [10.0874776, 53.5130482], [10.0875291, 53.51309799999999], [10.087717599999998, 53.51308350000001], [10.088032, 53.5130835], [10.088349999999998, 53.51310559999999], [10.088685399999997, 53.51315119999998], [10.0889774, 53.51320639999999], [10.089228599999997, 53.513286599999994], [10.089461299999998, 53.51337349999998], [10.089537999999997, 53.51340889999998], [10.0896271, 53.51335209999999]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_bcd6bf9740ea4cefd49333bd17de9f68.bindTooltip(
+                `<div>
+                     Rank 16 | Score 91.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_b2922624d4d9066184e072ae4ec055eb = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_f8e52de4e39d268f461f5f01165ca34b = $(`<div id="html_f8e52de4e39d268f461f5f01165ca34b" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #16         </h3>          <b>Opportunity score:</b>         91.0 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         3,616 m²<br>          <b>Distance to existing park:</b>         1,503 m<br>          <b>Local summer LST:</b>         34.2 °C<br>          <b>Distance to transit:</b>         33 m<br>          <b>Land-value proxy:</b>         295 €/m²<br>          <b>Built-up cover (150 m):</b>         23.4%<br>      </div>     </div>`)[0];
+                popup_b2922624d4d9066184e072ae4ec055eb.setContent(html_f8e52de4e39d268f461f5f01165ca34b);
+            
+        
+
+        geo_json_bcd6bf9740ea4cefd49333bd17de9f68.bindPopup(popup_b2922624d4d9066184e072ae4ec055eb)
+        ;
+
+        
+    
+    
+            geo_json_bcd6bf9740ea4cefd49333bd17de9f68.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_6089f028cc201f8360976599c4e0fb86 = L.marker(
+                [53.51305775, 10.088313684870265],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_1a34c625ba9a72f2607c2d209122189e = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                16\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_6089f028cc201f8360976599c4e0fb86.setIcon(div_icon_1a34c625ba9a72f2607c2d209122189e);
+            
+    
+        function geo_json_6173068e397dba694f09bc22232c51c9_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_6173068e397dba694f09bc22232c51c9_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_6173068e397dba694f09bc22232c51c9 = L.geoJson(null, {
+                onEachFeature: geo_json_6173068e397dba694f09bc22232c51c9_onEachFeature,
+            
+                style: geo_json_6173068e397dba694f09bc22232c51c9_styler,
+            ...{
+}
+        });
+
+        function geo_json_6173068e397dba694f09bc22232c51c9_add (data) {
+            geo_json_6173068e397dba694f09bc22232c51c9
+                .addData(data);
+        }
+            geo_json_6173068e397dba694f09bc22232c51c9_add({"features": [{"geometry": {"coordinates": [[[[9.9256867, 53.5033185], [9.9257099, 53.5030478], [9.925606999999998, 53.503006499999984], [9.924930799999998, 53.502992699999986], [9.9249051, 53.50329859999999], [9.9256867, 53.5033185]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_6173068e397dba694f09bc22232c51c9.bindTooltip(
+                `<div>
+                     Rank 17 | Score 90.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_423ae9d4b8fb477c5355890661ffee65 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_54abcdf5d1d235e0c7a51f9c376469e8 = $(`<div id="html_54abcdf5d1d235e0c7a51f9c376469e8" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #17         </h3>          <b>Opportunity score:</b>         90.7 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         1,765 m²<br>          <b>Distance to existing park:</b>         2,986 m<br>          <b>Local summer LST:</b>         37.1 °C<br>          <b>Distance to transit:</b>         207 m<br>          <b>Land-value proxy:</b>         340 €/m²<br>          <b>Built-up cover (150 m):</b>         32.7%<br>      </div>     </div>`)[0];
+                popup_423ae9d4b8fb477c5355890661ffee65.setContent(html_54abcdf5d1d235e0c7a51f9c376469e8);
+            
+        
+
+        geo_json_6173068e397dba694f09bc22232c51c9.bindPopup(popup_423ae9d4b8fb477c5355890661ffee65)
+        ;
+
+        
+    
+    
+            geo_json_6173068e397dba694f09bc22232c51c9.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_c317812432318088ca58f180fd769e93 = L.marker(
+                [53.50317319999999, 9.925307394077926],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_5d8743e0d0d05e651404fc9f62b95355 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                17\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_c317812432318088ca58f180fd769e93.setIcon(div_icon_5d8743e0d0d05e651404fc9f62b95355);
+            
+    
+        function geo_json_42d7258a97171f18f490307b29f85a0c_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_42d7258a97171f18f490307b29f85a0c_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_42d7258a97171f18f490307b29f85a0c = L.geoJson(null, {
+                onEachFeature: geo_json_42d7258a97171f18f490307b29f85a0c_onEachFeature,
+            
+                style: geo_json_42d7258a97171f18f490307b29f85a0c_styler,
+            ...{
+}
+        });
+
+        function geo_json_42d7258a97171f18f490307b29f85a0c_add (data) {
+            geo_json_42d7258a97171f18f490307b29f85a0c
+                .addData(data);
+        }
+            geo_json_42d7258a97171f18f490307b29f85a0c_add({"features": [{"geometry": {"coordinates": [[[[10.0013204, 53.45436329999998], [10.0015894, 53.45453879999997], [10.0016329, 53.4545705], [10.0017026, 53.454545399999986], [10.001757500000002, 53.45458959999999], [10.002603, 53.45425199999998], [10.002546799999998, 53.454212799999986], [10.0026327, 53.45417239999999], [10.002465699999997, 53.454074599999984], [10.002582999999998, 53.454010699999984], [10.002736600000004, 53.454114100000005], [10.0027983, 53.45408739999998], [10.0028497, 53.4541352], [10.0038893, 53.4537073], [10.0038504, 53.45367249999999], [10.0040302, 53.4535923], [10.0039903, 53.45356829999999], [10.003631800000003, 53.4533398], [10.0036041, 53.4533221], [10.0035347, 53.4533195], [10.0034755, 53.453282900000005], [10.0034777, 53.4532446], [10.0032065, 53.453070100000005], [10.0030605, 53.453157099999984], [10.002729500000001, 53.4533341], [10.0027167, 53.45334940000001], [10.0026447, 53.45330639999999], [10.0022786, 53.45350959999997], [10.0024794, 53.453643099999994], [10.0018607, 53.4539907], [10.0016534, 53.453864999999986], [10.001451299999998, 53.453979699999984], [10.001709299999998, 53.45414129999999], [10.0013204, 53.45436329999998]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_42d7258a97171f18f490307b29f85a0c.bindTooltip(
+                `<div>
+                     Rank 18 | Score 90.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_ed9f238ee8b33975faba5eeea84a771b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_01447c2369c19e6ed70e7d8aa86e2faf = $(`<div id="html_01447c2369c19e6ed70e7d8aa86e2faf" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #18         </h3>          <b>Opportunity score:</b>         90.7 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         11,971 m²<br>          <b>Distance to existing park:</b>         1,299 m<br>          <b>Local summer LST:</b>         33.4 °C<br>          <b>Distance to transit:</b>         99 m<br>          <b>Land-value proxy:</b>         330 €/m²<br>          <b>Built-up cover (150 m):</b>         23.2%<br>      </div>     </div>`)[0];
+                popup_ed9f238ee8b33975faba5eeea84a771b.setContent(html_01447c2369c19e6ed70e7d8aa86e2faf);
+            
+        
+
+        geo_json_42d7258a97171f18f490307b29f85a0c.bindPopup(popup_ed9f238ee8b33975faba5eeea84a771b)
+        ;
+
+        
+    
+    
+            geo_json_42d7258a97171f18f490307b29f85a0c.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_02a13cb101e439d865041f1233bb6bd9 = L.marker(
+                [53.45378614999999, 10.002961256662314],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_0dfb0674a9a57dce039366186f0497cf = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                18\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_02a13cb101e439d865041f1233bb6bd9.setIcon(div_icon_0dfb0674a9a57dce039366186f0497cf);
+            
+    
+        function geo_json_0c627ff12c9779e74360d8e71b161ce8_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_0c627ff12c9779e74360d8e71b161ce8_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_0c627ff12c9779e74360d8e71b161ce8 = L.geoJson(null, {
+                onEachFeature: geo_json_0c627ff12c9779e74360d8e71b161ce8_onEachFeature,
+            
+                style: geo_json_0c627ff12c9779e74360d8e71b161ce8_styler,
+            ...{
+}
+        });
+
+        function geo_json_0c627ff12c9779e74360d8e71b161ce8_add (data) {
+            geo_json_0c627ff12c9779e74360d8e71b161ce8
+                .addData(data);
+        }
+            geo_json_0c627ff12c9779e74360d8e71b161ce8_add({"features": [{"geometry": {"coordinates": [[[[10.1029863, 53.495549200000006], [10.102412, 53.495258599999985], [10.102214999999998, 53.4953318], [10.101454600000002, 53.495874099999995], [10.102053800000002, 53.4961739], [10.1029863, 53.495549200000006]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_0c627ff12c9779e74360d8e71b161ce8.bindTooltip(
+                `<div>
+                     Rank 19 | Score 90.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_b7c1000a82687bf591fb776e07a79817 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_7bada05f945f121d89ed4a9f8816ed8c = $(`<div id="html_7bada05f945f121d89ed4a9f8816ed8c" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #19         </h3>          <b>Opportunity score:</b>         90.6 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         4,933 m²<br>          <b>Distance to existing park:</b>         681 m<br>          <b>Local summer LST:</b>         36.6 °C<br>          <b>Distance to transit:</b>         134 m<br>          <b>Land-value proxy:</b>         330 €/m²<br>          <b>Built-up cover (150 m):</b>         39.0%<br>      </div>     </div>`)[0];
+                popup_b7c1000a82687bf591fb776e07a79817.setContent(html_7bada05f945f121d89ed4a9f8816ed8c);
+            
+        
+
+        geo_json_0c627ff12c9779e74360d8e71b161ce8.bindPopup(popup_b7c1000a82687bf591fb776e07a79817)
+        ;
+
+        
+    
+    
+            geo_json_0c627ff12c9779e74360d8e71b161ce8.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_cd091b719034743261889f36535da775 = L.marker(
+                [53.495711650000004, 10.102213095840856],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_7555f766add9b8bc80a7837fffb45c75 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                19\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_cd091b719034743261889f36535da775.setIcon(div_icon_7555f766add9b8bc80a7837fffb45c75);
+            
+    
+        function geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#222222", "fillColor": "#2E8B57", "fillOpacity": 0.72, "weight": 1.8};
+            }
+        }
+
+        function geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1 = L.geoJson(null, {
+                onEachFeature: geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1_onEachFeature,
+            
+                style: geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1_styler,
+            ...{
+}
+        });
+
+        function geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1_add (data) {
+            geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1
+                .addData(data);
+        }
+            geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1_add({"features": [{"geometry": {"coordinates": [[[[10.081557600000002, 53.5273769], [10.0813019, 53.5282701], [10.0822104, 53.52836249999998], [10.082466099999996, 53.52746919999999], [10.081557600000002, 53.5273769]]]], "type": "MultiPolygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1.bindTooltip(
+                `<div>
+                     Rank 20 | Score 90.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        var popup_f74673709f538cb66c4899aa303a16a8 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_30284bc14d6d8161fe303c8877b9182b = $(`<div id="html_30284bc14d6d8161fe303c8877b9182b" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial;         width: 290px;         line-height: 1.5;     ">          <h3 style="             margin-top: 0;             margin-bottom: 8px;         ">             Candidate #20         </h3>          <b>Opportunity score:</b>         90.6 / 100<br>          <b>Visual screening:</b>         Keep for shortlist<br>          <hr>          <b>Parking area:</b>         6,160 m²<br>          <b>Distance to existing park:</b>         1,939 m<br>          <b>Local summer LST:</b>         34.0 °C<br>          <b>Distance to transit:</b>         96 m<br>          <b>Land-value proxy:</b>         365 €/m²<br>          <b>Built-up cover (150 m):</b>         21.3%<br>      </div>     </div>`)[0];
+                popup_f74673709f538cb66c4899aa303a16a8.setContent(html_30284bc14d6d8161fe303c8877b9182b);
+            
+        
+
+        geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1.bindPopup(popup_f74673709f538cb66c4899aa303a16a8)
+        ;
+
+        
+    
+    
+            geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1.addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var marker_0ad09fe0973099a002fd1dc45ca5bf7b = L.marker(
+                [53.52786965, 10.08188400641657],
+                {
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+        
+    
+            var div_icon_ee65798017464f9927821615f6f5b819 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: white;\n                border: 2px solid #222;\n                border-radius: 50%;\n                width: 26px;\n                height: 26px;\n                line-height: 22px;\n                text-align: center;\n                font-size: 11px;\n                font-weight: bold;\n                color: #222;\n                box-shadow: 0 1px 3px rgba(0,0,0,0.35);\n            \"\u003e\n                20\n            \u003c/div\u003e\n            ",
+  "className": "empty",
+});
+        
+    
+                marker_0ad09fe0973099a002fd1dc45ca5bf7b.setIcon(div_icon_ee65798017464f9927821615f6f5b819);
+            
+    
+            map_557d1de9f1724d5e889d3d43424ae855.fitBounds(
+                [[53.453070100000005, 9.9026764], [53.5373415, 10.113129299999999]],
+                {}
+            );
+        
+    
+            var layer_control_f797ed59a78601eb4946f7a53fac4e19_layers = {
+                base_layers : {
+                    "Esri World Street Map" : tile_layer_8e2f0498f41cf31c2c4f328cff511998,
+                },
+                overlays :  {
+                    "macro_element_5612e0aa1a6a7ecc41afc746e6e851a7" : geo_json_5612e0aa1a6a7ecc41afc746e6e851a7,
+                    "macro_element_9f70b31326a3273e37ebbd7c8d6d974f" : geo_json_9f70b31326a3273e37ebbd7c8d6d974f,
+                    "macro_element_939e0c701e947417b87479b1769bccba" : geo_json_939e0c701e947417b87479b1769bccba,
+                    "macro_element_8cfb7920dcfb1dc71d33bc1fdfe2ff27" : geo_json_8cfb7920dcfb1dc71d33bc1fdfe2ff27,
+                    "macro_element_c0b12e7388ba2e45673ac6ee1352fb3f" : geo_json_c0b12e7388ba2e45673ac6ee1352fb3f,
+                    "macro_element_d07bb2ea8512fd405c653a6c1cd43650" : geo_json_d07bb2ea8512fd405c653a6c1cd43650,
+                    "macro_element_52a1878ec44f4749f129a6a16adea091" : geo_json_52a1878ec44f4749f129a6a16adea091,
+                    "macro_element_0fcf2b3215650a6a63b0ba1684efa60c" : geo_json_0fcf2b3215650a6a63b0ba1684efa60c,
+                    "macro_element_8c6da659c278aa75d0c984bb4ae2be1d" : geo_json_8c6da659c278aa75d0c984bb4ae2be1d,
+                    "macro_element_64c46f0ff760c404dbf2d16dcbd22c86" : geo_json_64c46f0ff760c404dbf2d16dcbd22c86,
+                    "macro_element_9d4a84f98f7b9245d0884c614a89d6c0" : geo_json_9d4a84f98f7b9245d0884c614a89d6c0,
+                    "macro_element_3bddacfe6c2582674f242b85d34b5e47" : geo_json_3bddacfe6c2582674f242b85d34b5e47,
+                    "macro_element_49a7061f75ed976cfcd6c516690a2406" : geo_json_49a7061f75ed976cfcd6c516690a2406,
+                    "macro_element_6fe3a7c3c52e8501c55f4ff21e78a6a2" : geo_json_6fe3a7c3c52e8501c55f4ff21e78a6a2,
+                    "macro_element_da95d5a95cf8d785b6275065cb00741e" : geo_json_da95d5a95cf8d785b6275065cb00741e,
+                    "macro_element_bcd6bf9740ea4cefd49333bd17de9f68" : geo_json_bcd6bf9740ea4cefd49333bd17de9f68,
+                    "macro_element_6173068e397dba694f09bc22232c51c9" : geo_json_6173068e397dba694f09bc22232c51c9,
+                    "macro_element_42d7258a97171f18f490307b29f85a0c" : geo_json_42d7258a97171f18f490307b29f85a0c,
+                    "macro_element_0c627ff12c9779e74360d8e71b161ce8" : geo_json_0c627ff12c9779e74360d8e71b161ce8,
+                    "macro_element_a83a7b9a8abe5e61a796e947bd1ed6f1" : geo_json_a83a7b9a8abe5e61a796e947bd1ed6f1,
+                },
+            };
+            let layer_control_f797ed59a78601eb4946f7a53fac4e19 = L.control.layers(
+                layer_control_f797ed59a78601eb4946f7a53fac4e19_layers.base_layers,
+                layer_control_f797ed59a78601eb4946f7a53fac4e19_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_557d1de9f1724d5e889d3d43424ae855);
+
+        
+</script>
+</html>
